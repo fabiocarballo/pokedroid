@@ -7,9 +7,18 @@ dependencies {
     implementation Dependencies.rxJava2
     implementation Dependencies.options
     implementation Dependencies.rxJavaOptions
+
+    testImplementation Dependencies.jupiterApi
+    testImplementation Dependencies.mockitoKotlin
+    testRuntimeOnly Dependencies.jupiterEngine
+
 }
 
 repositories {
     mavenCentral()
     maven { url "https://jitpack.io" }
+}
+
+test {
+    useJUnitPlatform()
 }

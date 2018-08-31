@@ -8,7 +8,7 @@ import com.pokedroid.domain.repository.PokemonList
 import com.pokedroid.domain.repository.PokemonRepository
 import io.reactivex.Observable
 
-class RetrievePokemonsInteractor(private val repository: PokemonRepository): RetrieveInteractor<Unit, PokemonList> {
+class RetrievePokemons(private val repository: PokemonRepository): RetrieveInteractor<Unit, PokemonList> {
 
     override fun retrieveBehaviorStream(params: Unit): Observable<PokemonList> {
         return repository
