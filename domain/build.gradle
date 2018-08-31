@@ -3,5 +3,13 @@ apply plugin: 'kotlin'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    Dependencies.kotlinStdLib
+    implementation Dependencies.kotlinStdLib
+    implementation Dependencies.rxJava2
+    implementation Dependencies.options
+    implementation Dependencies.rxJavaOptions
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
 }
