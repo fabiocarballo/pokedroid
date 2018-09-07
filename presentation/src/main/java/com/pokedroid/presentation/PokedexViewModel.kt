@@ -27,8 +27,9 @@ class PokedexViewModel(private val retrievePokemons: RetrievePokemons, private v
         val retrievedLocations = retrieveLocations.retrieveBehaviorStream(Unit)
 
         val pokedexObservable: Observable<PokedexScreenState> =
-                zip(retrievedPokemons, retrievedLocations, BiFunction { pokeList: PokemonList, locList: List<Location> -> listOf(pokeList, locList) })
-                        .map { PokedexScreenState.Data(it.size, it.size) }
+                zip(retrievedPokemons, retrievedLocations, BiFunction { pokeList: PokemonList, locList: List<Location> ->
+                    PokedexScreenState.Data(pokeList.size, locList.size)
+                })
 
         return pokedexObservable
                 .startWith(PokedexScreenState.Loading)
