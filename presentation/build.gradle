@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     compileSdkVersion 28
@@ -17,6 +18,19 @@ android {
         }
     }
 
+    testOptions {
+        junitPlatform {
+            details "tree"
+            platformVersion Versions.junitPlatform
+            jupiterVersion Versions.junitJupiter
+            vintageVersion Versions.junitVintage
+        }
+
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            jvmArgs '-noverify'
+        }
+    }
 }
 
 repositories {
@@ -32,4 +46,8 @@ dependencies {
     implementation Dependencies.viewModel
     implementation Dependencies.lifecycleExtensions
     implementation Dependencies.rxJava2
+
+    testImplementation junit5.unitTests()
+    testImplementation Dependencies.mockitoKotlin
+    testImplementation Dependencies.architectureComponentsTesting
 }
