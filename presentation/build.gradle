@@ -46,6 +46,8 @@ dependencies {
     implementation Dependencies.viewModel
     implementation Dependencies.lifecycleExtensions
     implementation Dependencies.rxJava2
+    implementation Dependencies.options
+    implementation Dependencies.rxJavaOptions
 
     testImplementation junit5.unitTests()
     testImplementation Dependencies.mockitoKotlin
