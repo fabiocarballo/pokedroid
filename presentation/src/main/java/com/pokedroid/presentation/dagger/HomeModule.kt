@@ -13,7 +13,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 
 @Module
-class PokedexModule {
+class HomeModule {
 
     @Provides
     fun provideRetrievePokemons(repository: PokemonRepository): RetrievePokemons {

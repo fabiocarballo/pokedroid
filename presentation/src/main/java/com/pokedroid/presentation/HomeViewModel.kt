@@ -1,7 +1,7 @@
 package com.pokedroid.presentation
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 import com.pokedroid.domain.interactors.RetrieveLocations
 import com.pokedroid.domain.interactors.RetrievePokemons
 import com.pokedroid.domain.model.Location
@@ -13,8 +13,8 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
-class PokedexViewModel @Inject constructor(private val retrievePokemons: RetrievePokemons,
-                                           private val retrieveLocations: RetrieveLocations)
+class HomeViewModel @Inject constructor(private val retrievePokemons: RetrievePokemons,
+                                        private val retrieveLocations: RetrieveLocations)
     : ViewModel() {
 
     val pokedexLiveData = MutableLiveData<PokedexScreenState>()

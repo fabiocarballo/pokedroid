@@ -1,7 +1,7 @@
 package com.pokedroid.presentation.dagger
 
-import androidx.lifecycle.ViewModelProvider
-import com.pokedroid.presentation.PokedexViewModel
+import android.arch.lifecycle.ViewModelProvider
+import com.pokedroid.presentation.HomeViewModel
 import com.pokedroid.presentation.viewmodel.ViewModelFactory
 import com.pokedroid.presentation.viewmodel.ViewModelKey
 import dagger.Binds
@@ -16,6 +16,6 @@ abstract class ViewModelsModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(PokedexViewModel::class)
-    internal abstract fun postListViewModel(viewModel: PokedexViewModel): PokedexViewModel
+    @ViewModelKey(HomeViewModel::class)
+    internal abstract fun postListViewModel(viewModel: HomeViewModel): HomeViewModel
 }

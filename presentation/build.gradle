@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: "de.mannodermaus.android-junit5"
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     compileSdkVersion 28
@@ -45,14 +45,15 @@ dependencies {
 
     implementation project(Modules.domain)
 
-    implementation Dependencies.viewModel
-    implementation Dependencies.lifecycleExtensions
+    implementation Dependencies.architectureComponentsExtensions
+    kapt Dependencies.architectureComponentsCompiler
     implementation Dependencies.rxJava2
     implementation Dependencies.options
     implementation Dependencies.rxJavaOptions
     implementation Dependencies.dagger
     kapt Dependencies.daggerCompiler
     implementation "androidx.appcompat:appcompat:1.0.0-rc02"
+    implementation Dependencies.rxAndroid2
 
     testImplementation junit5.unitTests()
     testImplementation Dependencies.mockitoKotlin
