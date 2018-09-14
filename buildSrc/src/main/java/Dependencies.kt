@@ -11,6 +11,7 @@ object Versions {
     const val junitJupiter = "5.2.0"
     const val junitVintage = "5.2.0"
     const val architectureComponents = "1.1.1"
+    const val daggerVersion = "2.17"
 }
 
 object Dependencies {
@@ -20,6 +21,8 @@ object Dependencies {
     const val rxJavaOptions = "com.github.peter-tackage.kotlin-options:kotlin-options-rxjava2-extensions:${Versions.options}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleVersion}"
+    const val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
 
     // Testing Dependencies
     const val junit4 = "junit:junit:${Versions.junit4}"
