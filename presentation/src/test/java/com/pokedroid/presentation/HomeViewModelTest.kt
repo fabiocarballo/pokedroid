@@ -1,5 +1,7 @@
 package com.pokedroid.presentation
 
+import android.arch.core.executor.ArchTaskExecutor
+import android.arch.core.executor.TaskExecutor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.pokedroid.domain.interactors.RetrieveLocations
@@ -12,11 +14,11 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(InstantTaskExecutorExtension::class)
-class PokedexViewModelTest {
+class HomeViewModelTest {
 
     private val retrieveLocations: RetrieveLocations = mock()
     private val retrievePokemons: RetrievePokemons = mock()
-    private val tested = PokedexViewModel(retrievePokemons, retrieveLocations)
+    private val tested = HomeViewModel(retrievePokemons, retrieveLocations)
 
     @Test
     fun `correct data will be output - happy path`() {
@@ -80,7 +82,7 @@ class PokedexViewModelTest {
 
         // assertion
         val liveDataValue = tested.pokedexLiveData.value
-        assertEquals((PokedexScreenState.Error("Yuasdjas")), liveDataValue)
+        assertEquals((PokedexScreenState.Error("Ups!")), liveDataValue)
     }
 
 }

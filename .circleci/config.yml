@@ -26,7 +26,7 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
           name: Run Domain Module Unit Tests
-          command: ./gradlew :domain:test
+          command: ./gradlew :domain:test :presentation:testDebug
       - store_artifacts:
           path: domain/build/reports
       - store_test_results:

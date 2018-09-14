@@ -1,7 +1,7 @@
 package com.pokedroid.presentation
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 import com.pokedroid.domain.interactors.RetrieveLocations
 import com.pokedroid.domain.interactors.RetrievePokemons
 import com.pokedroid.domain.model.Location
@@ -11,8 +11,11 @@ import io.reactivex.Observable.zip
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
+import javax.inject.Inject
 
-class PokedexViewModel(private val retrievePokemons: RetrievePokemons, private val retrieveLocations: RetrieveLocations) : ViewModel() {
+class HomeViewModel @Inject constructor(private val retrievePokemons: RetrievePokemons,
+                                        private val retrieveLocations: RetrieveLocations)
+    : ViewModel() {
 
     val pokedexLiveData = MutableLiveData<PokedexScreenState>()
 
@@ -27,14 +30,14 @@ class PokedexViewModel(private val retrievePokemons: RetrievePokemons, private v
         val retrievedLocations = retrieveLocations.retrieveBehaviorStream(Unit)
 
         val pokedexObservable: Observable<PokedexScreenState> =
-                zip(retrievedPokemons, retrievedLocations, BiFunction { pokeList: PokemonList, locList: List<Location> ->
-                    PokedexScreenState.Data(pokeList.size, locList.size)
-                })
+            zip(retrievedPokemons, retrievedLocations, BiFunction { pokeList: PokemonList, locList: List<Location> ->
+                PokedexScreenState.Data(pokeList.size, locList.size)
+            })
 
         return pokedexObservable
-                .startWith(PokedexScreenState.Loading)
-                .onErrorReturn { PokedexScreenState.Error("Ups!") }
-                .subscribe(pokedexLiveData::postValue, ::handleError)
+            .startWith(PokedexScreenState.Loading)
+            .onErrorReturn { PokedexScreenState.Error("Ups!") }
+            .subscribe(pokedexLiveData::postValue, ::handleError)
     }
 
     private fun handleError(throwable: Throwable) {
