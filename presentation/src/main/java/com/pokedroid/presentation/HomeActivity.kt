@@ -1,7 +1,7 @@
 package com.pokedroid.presentation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import com.pokedroid.presentation.dagger.DaggerHomeComponent
 import javax.inject.Inject
 

@@ -52,7 +52,8 @@ dependencies {
     implementation Dependencies.rxJavaOptions
     implementation Dependencies.dagger
     kapt Dependencies.daggerCompiler
-    implementation "androidx.appcompat:appcompat:1.0.0-rc02"
+    implementation "com.android.support:support-compat:27.1.1"
+    implementation "com.android.support:appcompat-v7:27.1.1"
     implementation Dependencies.rxAndroid2
 
     testImplementation junit5.unitTests()
