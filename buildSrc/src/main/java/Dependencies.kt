@@ -12,6 +12,7 @@ object Versions {
     const val architectureComponents = "1.1.1"
     const val daggerVersion = "2.17"
     const val rxAndroid2 = "2.0.2"
+    const val supportLibraries = "28.0.0-alpha1"
 }
 
 object Dependencies {
@@ -24,7 +25,8 @@ object Dependencies {
     const val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
     const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
     const val rxAndroid2 = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid2}"
-
+    const val supportCompat = "com.android.support:support-compat:${Versions.supportLibraries}"
+    const val appCompat = "com.android.support:appcompat-v7:${Versions.supportLibraries}"
 
     // Testing Dependencies
     const val junit4 = "junit:junit:${Versions.junit4}"
