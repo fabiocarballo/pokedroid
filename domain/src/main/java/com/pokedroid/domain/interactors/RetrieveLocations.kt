@@ -7,7 +7,7 @@ import io.reactivex.Observable
 class RetrieveLocations : RetrieveInteractor<Unit, List<Location>> {
 
     override fun retrieveBehaviorStream(params: Unit): Observable<List<Location>> {
-        val fakeData = listOf<Location>()
+        val fakeData = listOf(Location(1,"Ilke's Mansion"), Location(2, "Fabio's Mansion"))
         return Observable.just(fakeData)
     }
 }
