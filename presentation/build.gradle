@@ -55,6 +55,7 @@ dependencies {
     implementation Dependencies.supportCompat
     implementation Dependencies.appCompat
     implementation Dependencies.rxAndroid2
+    implementation Dependencies.recyclerview
 
     testImplementation junit5.unitTests()
     testImplementation Dependencies.mockitoKotlin

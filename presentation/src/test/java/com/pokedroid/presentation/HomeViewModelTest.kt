@@ -1,7 +1,5 @@
 package com.pokedroid.presentation
 
-import android.arch.core.executor.ArchTaskExecutor
-import android.arch.core.executor.TaskExecutor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.pokedroid.domain.interactors.RetrieveLocations
@@ -33,7 +31,7 @@ class HomeViewModelTest {
 
         // assertion
         val liveDataValue = tested.pokedexLiveData.value
-        assertEquals(PokedexScreenState.Data(expectedPokemons.size, expectedLocations.size), liveDataValue)
+        assertEquals(PokedexScreenState.Data(expectedPokemons, expectedLocations), liveDataValue)
     }
 
 
