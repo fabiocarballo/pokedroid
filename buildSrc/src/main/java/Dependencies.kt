@@ -27,6 +27,7 @@ object Dependencies {
     const val rxAndroid2 = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid2}"
     const val supportCompat = "com.android.support:support-compat:${Versions.supportLibraries}"
     const val appCompat = "com.android.support:appcompat-v7:${Versions.supportLibraries}"
+    const val recyclerview = "com.android.support:recyclerview-v7:${Versions.supportLibraries}"
 
     // Testing Dependencies
     const val junit4 = "junit:junit:${Versions.junit4}"

@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.pokedroid.domain.model.Location
 
-class LocationAdapter(private var locationList: List<Location>): RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
+class LocationAdapter: RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
+
+    var locationList: List<Location> = emptyList()
 
     class LocationViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 

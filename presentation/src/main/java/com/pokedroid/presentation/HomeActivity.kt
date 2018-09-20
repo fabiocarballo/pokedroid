@@ -13,12 +13,8 @@ class HomeActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModel: HomeViewModel
 
-    private lateinit var pokemonListView: RecyclerView
-    private lateinit var locationListView: RecyclerView
-    private lateinit var pokemonViewManager: RecyclerView.LayoutManager
-    private lateinit var locationViewManager: RecyclerView.LayoutManager
-    private lateinit var pokemonAdapter: PokemonAdapter
-    private lateinit var locationAdapter: LocationAdapter
+    private val pokemonAdapter = PokemonAdapter()
+    private val locationAdapter = LocationAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,43 +25,37 @@ class HomeActivity : AppCompatActivity() {
                 .build()
                 .inject(this)
 
+        setRecyclerView()
+        observeThings()
         viewModel.onBind()
-        observerPokemons()
-        observeLocations()
     }
 
-    private fun observerPokemons() {
-        pokemonViewManager = LinearLayoutManager(this)
+    private fun setRecyclerView() {
+        val pokemonRecyclerView = findViewById<RecyclerView>(R.id.pokemon_list)
+        pokemonRecyclerView.setHasFixedSize(true)
+        pokemonRecyclerView.layoutManager = LinearLayoutManager(this@HomeActivity)
+        pokemonRecyclerView.adapter = pokemonAdapter
 
-        viewModel.pokedexLiveData.observe(this, Observer<PokedexScreenState?> {
-            when (it) {
-                is PokedexScreenState.Data -> {
-                    pokemonListView = findViewById<RecyclerView>(R.id.pokemon_list).apply {
-                        setHasFixedSize(true)
-                        layoutManager = pokemonViewManager
-                        pokemonAdapter = PokemonAdapter(it.pokemonList)
-                        adapter = pokemonAdapter
 
-                    }
-                }
-            }
-        })
+        findViewById<RecyclerView>(R.id.location_list).apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@HomeActivity)
+            adapter = locationAdapter
+        }
     }
 
-    private fun observeLocations() {
-        locationViewManager = LinearLayoutManager(this)
+    private fun observeThings() {
+        viewModel.pokedexLiveData
+                .observe(this, Observer<PokedexScreenState?> {
+                    when (it) {
+                        is PokedexScreenState.Data -> {
+                            pokemonAdapter.pokemonList = it.pokemonList
+                            pokemonAdapter.notifyDataSetChanged()
 
-        viewModel.pokedexLiveData.observe(this, Observer<PokedexScreenState?> {
-            when (it) {
-                is PokedexScreenState.Data -> {
-                    locationListView = findViewById<RecyclerView>(R.id.location_list).apply {
-                        setHasFixedSize(true)
-                        layoutManager = locationViewManager
-                        locationAdapter = LocationAdapter(it.locationList)
-                        adapter = locationAdapter
+                            locationAdapter.locationList = it.locationList
+                            locationAdapter.notifyDataSetChanged()
+                        }
                     }
-                }
-            }
-        })
+                })
     }
 }

@@ -7,7 +7,9 @@ import android.widget.TextView
 import com.pokedroid.domain.repository.PokemonList
 
 
-class PokemonAdapter(private var pokemonList: PokemonList): RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
+class PokemonAdapter: RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
+
+    var pokemonList: PokemonList = listOf()
 
     class PokemonViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
