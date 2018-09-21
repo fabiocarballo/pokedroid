@@ -37,8 +37,8 @@ dependencies {
     implementation Dependencies.supportAnnotations
     implementation Dependencies.appCompat
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation Dependencies.supportTestRunner
+    androidTestImplementation Dependencies.supportEspressoCore
+    androidTestImplementation Dependencies.supportTestRules
     androidTestImplementation Dependencies.architectureComponentsTesting
 }

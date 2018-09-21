@@ -13,6 +13,8 @@ object Versions {
     const val daggerVersion = "2.17"
     const val rxAndroid2 = "2.0.2"
     const val supportLibraries = "28.0.0-alpha1"
+    const val supportTest = "1.0.2"
+    const val espressoCore = "3.0.2"
 }
 
 object Dependencies {
@@ -36,6 +38,9 @@ object Dependencies {
     const val jupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
     const val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
     const val architectureComponentsTesting = "android.arch.core:core-testing:${Versions.architectureComponents}"
+    const val supportTestRunner = "com.android.support.test:runner:${Versions.supportTest}"
+    const val supportEspressoCore = "com.android.support.test.espresso:espresso-core:${Versions.espressoCore}"
+    const val supportTestRules = "com.android.support.test:rules:${Versions.supportTest}"
 }
 
 object Modules {
