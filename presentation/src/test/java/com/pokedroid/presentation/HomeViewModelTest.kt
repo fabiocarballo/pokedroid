@@ -22,7 +22,7 @@ class HomeViewModelTest {
     fun `correct data will be output - happy path`() {
         // setting up the mocking
         val expectedLocations = listOf(Location(1, "asdas"))
-        val expectedPokemons = listOf(Pokemon("1", "asdas"), Pokemon("1", "asdas"))
+        val expectedPokemons = listOf(Pokemon(1, "asdas"), Pokemon(1, "asdas"))
         whenever(retrieveLocations.retrieveBehaviorStream(Unit)).thenReturn(Observable.just(expectedLocations))
         whenever(retrievePokemons.retrieveBehaviorStream(Unit)).thenReturn(Observable.just(expectedPokemons))
 
@@ -55,7 +55,7 @@ class HomeViewModelTest {
     @Test
     fun `error will be shown - retrieve locations fails`() {
         // setting up the mocking
-        val expectedPokemons = listOf(Pokemon("1", "asdas"), Pokemon("1", "asdas"))
+        val expectedPokemons = listOf(Pokemon(1, "asdas"), Pokemon(1, "asdas"))
         val throwable = Throwable()
         whenever(retrieveLocations.retrieveBehaviorStream(Unit)).thenReturn(Observable.error(throwable))
         whenever(retrievePokemons.retrieveBehaviorStream(Unit)).thenReturn(Observable.just(expectedPokemons))

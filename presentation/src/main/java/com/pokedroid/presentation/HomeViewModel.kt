@@ -3,17 +3,18 @@ package com.pokedroid.presentation
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.pokedroid.domain.interactors.RetrieveLocations
-import com.pokedroid.domain.interactors.RetrievePokemons
+import com.pokedroid.domain.interactors.RetrievePokemon
 import com.pokedroid.domain.model.Location
 import com.pokedroid.domain.model.Pokemon
 import io.reactivex.Observable
 import io.reactivex.Observable.zip
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val retrievePokemons: RetrievePokemons,
+class HomeViewModel @Inject constructor(private val retrievePokemon: RetrievePokemon,
                                         private val retrieveLocations: RetrieveLocations)
     : ViewModel() {
 
@@ -26,17 +27,21 @@ class HomeViewModel @Inject constructor(private val retrievePokemons: RetrievePo
     }
 
     private fun bindPokemons(): Disposable {
-        val retrievedPokemons = retrievePokemons.retrieveBehaviorStream(Unit)
+        val retrievePokemon = retrievePokemon
+                .retrieveBehaviorStream(1)
+                .map { listOf(it) }
+
         val retrievedLocations = retrieveLocations.retrieveBehaviorStream(Unit)
 
         val pokedexObservable: Observable<PokedexScreenState> =
-                zip(retrievedPokemons, retrievedLocations, BiFunction { pokeList: List<Pokemon>, locationList: List<Location> ->
+                zip(retrievePokemon, retrievedLocations, BiFunction { pokeList: List<Pokemon>, locationList: List<Location> ->
                     PokedexScreenState.Data(pokeList, locationList)
                 })
 
         return pokedexObservable
                 .startWith(PokedexScreenState.Loading)
                 .onErrorReturn { PokedexScreenState.Error("Ups!") }
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pokedexLiveData::postValue, ::handleError)
     }
 
