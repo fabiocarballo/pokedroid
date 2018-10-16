@@ -4,6 +4,7 @@ import com.petertackage.kotlinoptions.Option
 import com.petertackage.kotlinoptions.optionOf
 import com.pokedroid.data.services.PokemonService
 import com.pokedroid.data.services.RetrofitClientInstance
+import com.pokedroid.domain.interactors.RetrieveFirstNPokemons
 import com.pokedroid.domain.interactors.RetrieveLocations
 import com.pokedroid.domain.interactors.RetrievePokemon
 import com.pokedroid.domain.interactors.RetrievePokemons
@@ -32,6 +33,11 @@ class HomeModule {
     @Provides
     fun provideRetrievePokemon(service: PokemonService): RetrievePokemon {
         return RetrievePokemon(service)
+    }
+
+    @Provides
+    fun provideRetrieveFirstNPokemons(service: PokemonService): RetrieveFirstNPokemons {
+        return RetrieveFirstNPokemons(service)
     }
 
     @Provides

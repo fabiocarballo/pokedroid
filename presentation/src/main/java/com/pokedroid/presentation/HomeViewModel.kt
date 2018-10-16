@@ -2,6 +2,7 @@ package com.pokedroid.presentation
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import com.pokedroid.domain.interactors.RetrieveFirstNPokemons
 import com.pokedroid.domain.interactors.RetrieveLocations
 import com.pokedroid.domain.interactors.RetrievePokemon
 import com.pokedroid.domain.model.Location
@@ -14,7 +15,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val retrievePokemon: RetrievePokemon,
+class HomeViewModel @Inject constructor(private val retrieveFirstNPokemons: RetrieveFirstNPokemons,
                                         private val retrieveLocations: RetrieveLocations)
     : ViewModel() {
 
@@ -27,14 +28,14 @@ class HomeViewModel @Inject constructor(private val retrievePokemon: RetrievePok
     }
 
     private fun bindPokemons(): Disposable {
-        val retrievePokemon = retrievePokemon
-                .retrieveBehaviorStream(1)
-                .map { listOf(it) }
+        val retrievedFirstNPokemons = retrieveFirstNPokemons
+                .retrieveBehaviorStream(13)
+                //.map { listOf(it) }
 
         val retrievedLocations = retrieveLocations.retrieveBehaviorStream(Unit)
 
         val pokedexObservable: Observable<PokedexScreenState> =
-                zip(retrievePokemon, retrievedLocations, BiFunction { pokeList: List<Pokemon>, locationList: List<Location> ->
+                zip(retrievedFirstNPokemons, retrievedLocations, BiFunction { pokeList: List<Pokemon>, locationList: List<Location> ->
                     PokedexScreenState.Data(pokeList, locationList)
                 })
 

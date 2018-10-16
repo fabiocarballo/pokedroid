@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface PokemonService {
 
     @GET("/api/v2/pokemon/")
-    fun getPokemonURLs(): Observable<List<PokemonListRaw>>
+    fun getPokemonURLs(): Observable<PokemonListRaw>
 
     @GET("/api/v2/pokemon/{id}/")
     fun getPokemon(@Path("id") id: Int): Observable<PokemonRaw>
