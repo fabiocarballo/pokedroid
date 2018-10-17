@@ -29,10 +29,8 @@ class HomeActivity : AppCompatActivity() {
 
         setRecyclerView()
         observeThings()
-        val button = findViewById<Button>(R.id.button_id)
-        button.setOnClickListener {
-                viewModel.onBind()
-        }
+
+        findViewById<Button>(R.id.button_id).setOnClickListener { viewModel.onBind() }
 
     }
 

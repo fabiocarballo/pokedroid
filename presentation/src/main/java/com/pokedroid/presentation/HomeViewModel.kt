@@ -29,7 +29,6 @@ class HomeViewModel @Inject constructor(private val retrieveFirstNPokemons: Retr
     private fun bindPokemons(): Disposable {
         val retrievedFirstNPokemons = retrieveFirstNPokemons
                 .retrieveBehaviorStream(5)
-                //.map { listOf(it) }
 
         val retrievedLocations = retrieveLocations.retrieveBehaviorStream(Unit)
 

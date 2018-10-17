@@ -7,9 +7,7 @@ dependencies {
     implementation Dependencies.rxJava2
     implementation Dependencies.options
     implementation Dependencies.rxJavaOptions
-    implementation Dependencies.retrofit
-    implementation Dependencies.retrofitRxJava2
-    implementation Dependencies.converterGson
+    implementation project(Modules.data)
 
     testImplementation Dependencies.jupiterApi
     testImplementation Dependencies.mockitoKotlin

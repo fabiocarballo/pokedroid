@@ -33,6 +33,7 @@ dependencies {
 
 
     implementation project(Modules.presentation)
+    implementation project(Modules.data)
     implementation Dependencies.kotlinStdLib
     implementation Dependencies.supportAnnotations
     implementation Dependencies.appCompat

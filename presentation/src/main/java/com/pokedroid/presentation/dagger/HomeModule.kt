@@ -7,7 +7,6 @@ import com.pokedroid.data.services.RetrofitClientInstance
 import com.pokedroid.domain.interactors.RetrieveFirstNPokemons
 import com.pokedroid.domain.interactors.RetrieveLocations
 import com.pokedroid.domain.interactors.RetrievePokemon
-import com.pokedroid.domain.interactors.RetrievePokemons
 import com.pokedroid.domain.model.Pokemon
 import com.pokedroid.domain.repository.PokemonList
 import com.pokedroid.domain.repository.PokemonRepository

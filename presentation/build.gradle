@@ -44,6 +44,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation project(Modules.domain)
+    implementation project(Modules.data)
 
     implementation Dependencies.architectureComponentsExtensions
     kapt Dependencies.architectureComponentsCompiler
