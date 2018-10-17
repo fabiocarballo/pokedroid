@@ -4,7 +4,6 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.pokedroid.domain.interactors.RetrieveFirstNPokemons
 import com.pokedroid.domain.interactors.RetrieveLocations
-import com.pokedroid.domain.interactors.RetrievePokemon
 import com.pokedroid.domain.model.Location
 import com.pokedroid.domain.model.Pokemon
 import io.reactivex.Observable
@@ -29,7 +28,7 @@ class HomeViewModel @Inject constructor(private val retrieveFirstNPokemons: Retr
 
     private fun bindPokemons(): Disposable {
         val retrievedFirstNPokemons = retrieveFirstNPokemons
-                .retrieveBehaviorStream(13)
+                .retrieveBehaviorStream(5)
                 //.map { listOf(it) }
 
         val retrievedLocations = retrieveLocations.retrieveBehaviorStream(Unit)
