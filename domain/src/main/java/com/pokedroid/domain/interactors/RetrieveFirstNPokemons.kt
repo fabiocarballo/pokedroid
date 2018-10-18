@@ -10,6 +10,8 @@ import io.reactivex.schedulers.Schedulers
 class RetrieveFirstNPokemons(private val pokemonService: PokemonService) : RetrieveInteractor<Int, List<Pokemon>> {
 
     override fun retrieveBehaviorStream(params: Int): Observable<List<Pokemon>> {
+        if(params < 1) throw IllegalArgumentException()
+
         return pokemonService.getPokemonURLs()
                 .subscribeOn(Schedulers.io())
                 .map { convertPokemon(it, params) }
