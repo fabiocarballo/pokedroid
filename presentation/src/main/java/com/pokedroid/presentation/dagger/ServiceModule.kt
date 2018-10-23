@@ -5,16 +5,18 @@ import com.pokedroid.data.services.RetrofitClientInstance
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
-class ServiceModule {
+open class ServiceModule {
+
     @Provides
     fun provideRetrofit(): Retrofit {
         return RetrofitClientInstance().retrofitClientInstance()
     }
 
     @Provides
-    fun providePokemonService(retrofit: Retrofit): PokemonService {
+    open fun providePokemonService(retrofit: Retrofit): PokemonService {
         return retrofit.create(PokemonService::class.java)
     }
 }

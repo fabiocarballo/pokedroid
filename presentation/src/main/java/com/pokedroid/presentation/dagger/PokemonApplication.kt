@@ -11,8 +11,12 @@ open class PokemonApplication: Application() {
         initializeAppComponent()
     }
 
-    private fun initializeAppComponent() {
-        appComponent = DaggerApplicationComponent
+    open fun initializeAppComponent() {
+        appComponent = buildAppComponent()
+    }
+
+    open fun buildAppComponent(): ApplicationComponent {
+        return DaggerApplicationComponent
                 .builder()
                 .build()
     }
