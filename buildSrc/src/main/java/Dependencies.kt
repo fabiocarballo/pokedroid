@@ -15,6 +15,7 @@ object Versions {
     const val supportLibraries = "28.0.0-alpha1"
     const val supportTest = "1.0.2"
     const val espressoCore = "3.0.2"
+    const val retrofit = "2.4.0"
 }
 
 object Dependencies {
@@ -31,6 +32,9 @@ object Dependencies {
     const val appCompat = "com.android.support:appcompat-v7:${Versions.supportLibraries}"
     const val recyclerview = "com.android.support:recyclerview-v7:${Versions.supportLibraries}"
     const val supportAnnotations = "com.android.support:support-annotations:${Versions.supportLibraries}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitRxJava2 = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 
     // Testing Dependencies
     const val junit4 = "junit:junit:${Versions.junit4}"
@@ -46,4 +50,5 @@ object Dependencies {
 object Modules {
     const val domain = ":domain"
     const val presentation = ":presentation"
+    const val data = ":data"
 }

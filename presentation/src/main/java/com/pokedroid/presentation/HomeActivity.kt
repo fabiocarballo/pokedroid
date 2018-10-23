@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
+import android.widget.Button
 import com.pokedroid.presentation.dagger.DaggerHomeComponent
 import javax.inject.Inject
 
@@ -27,7 +29,9 @@ class HomeActivity : AppCompatActivity() {
 
         setRecyclerView()
         observeThings()
-        viewModel.onBind()
+
+        findViewById<Button>(R.id.button_id).setOnClickListener { viewModel.onBind() }
+
     }
 
     private fun setRecyclerView() {

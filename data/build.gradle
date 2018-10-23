@@ -1,0 +1,16 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofitRxJava2
+    implementation Dependencies.converterGson
+    implementation Dependencies.kotlinStdLib
+
+    testImplementation Dependencies.junit4
+
+}
+repositories {
+    mavenCentral()
+}
