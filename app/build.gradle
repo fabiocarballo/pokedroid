@@ -31,7 +31,6 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-
     implementation project(Modules.presentation)
     implementation project(Modules.data)
     implementation Dependencies.kotlinStdLib

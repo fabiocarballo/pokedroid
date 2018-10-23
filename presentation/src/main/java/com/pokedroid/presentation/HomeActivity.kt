@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.widget.Button
-import com.pokedroid.presentation.dagger.DaggerHomeComponent
+import com.pokedroid.presentation.dagger.PokemonApplication
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity() {
@@ -22,8 +21,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        DaggerHomeComponent
-                .builder()
+        (application as PokemonApplication).getApplicationComponent()
+                .homeComponentBuilder()
                 .build()
                 .inject(this)
 
