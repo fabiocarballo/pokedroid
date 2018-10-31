@@ -12,7 +12,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.pokedroid.UiTestsRunner"
     }
 
     buildTypes {
@@ -36,9 +36,14 @@ dependencies {
     implementation Dependencies.kotlinStdLib
     implementation Dependencies.supportAnnotations
     implementation Dependencies.appCompat
+    implementation Dependencies.dagger
+    kapt Dependencies.daggerCompiler
 
     androidTestImplementation Dependencies.supportTestRunner
     androidTestImplementation Dependencies.supportEspressoCore
     androidTestImplementation Dependencies.supportTestRules
     androidTestImplementation Dependencies.architectureComponentsTesting
+    androidTestImplementation Dependencies.rxAndroid2
+    androidTestImplementation Dependencies.retrofit
+    androidTestImplementation Dependencies.mockk
 }

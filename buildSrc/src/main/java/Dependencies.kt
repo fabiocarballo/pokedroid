@@ -16,6 +16,7 @@ object Versions {
     const val supportTest = "1.0.2"
     const val espressoCore = "3.0.2"
     const val retrofit = "2.4.0"
+    const val mockk = "1.8.8"
 }
 
 object Dependencies {
@@ -45,6 +46,7 @@ object Dependencies {
     const val supportTestRunner = "com.android.support.test:runner:${Versions.supportTest}"
     const val supportEspressoCore = "com.android.support.test.espresso:espresso-core:${Versions.espressoCore}"
     const val supportTestRules = "com.android.support.test:rules:${Versions.supportTest}"
+    const val mockk = "io.mockk:mockk-android:${Versions.mockk}"
 }
 
 object Modules {
