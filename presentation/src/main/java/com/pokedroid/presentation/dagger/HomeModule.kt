@@ -3,7 +3,6 @@ package com.pokedroid.presentation.dagger
 import com.petertackage.kotlinoptions.Option
 import com.petertackage.kotlinoptions.optionOf
 import com.pokedroid.data.services.PokemonService
-import com.pokedroid.data.services.RetrofitClientInstance
 import com.pokedroid.domain.interactors.RetrieveFirstNPokemons
 import com.pokedroid.domain.interactors.RetrieveLocations
 import com.pokedroid.domain.interactors.RetrievePokemon
@@ -14,20 +13,9 @@ import dagger.Module
 import dagger.Provides
 import io.reactivex.Completable
 import io.reactivex.Observable
-import retrofit2.Retrofit
 
 @Module
 class HomeModule {
-
-    @Provides
-    fun provideRetrofit(): Retrofit {
-        return RetrofitClientInstance().retrofitClientInstance()
-    }
-
-    @Provides
-    fun providePokemonService(retrofit: Retrofit): PokemonService {
-        return retrofit.create(PokemonService::class.java)
-    }
 
     @Provides
     fun provideRetrievePokemon(service: PokemonService): RetrievePokemon {
