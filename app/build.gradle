@@ -49,6 +49,6 @@ dependencies {
     androidTestImplementation Dependencies.rxAndroid2
     androidTestImplementation Dependencies.retrofit
     androidTestImplementation Dependencies.mockk
-    androidTestImplementation 'com.squareup.okhttp3:mockwebserver:3.10.0'
+    androidTestImplementation Dependencies.mockWebServer
 
 }
