@@ -1,4 +1,4 @@
-package com.pokedroid
+package com.pokedroid.helpers
 
 import android.content.Context
 import java.io.BufferedReader

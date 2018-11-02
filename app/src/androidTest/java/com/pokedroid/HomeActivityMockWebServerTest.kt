@@ -8,6 +8,7 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import com.pokedroid.helpers.JsonFileHelper
 import com.pokedroid.presentation.HomeActivity
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -25,21 +26,18 @@ class HomeActivityMockWebServer {
 
     private lateinit var mockServer: MockWebServer
 
+    private val jsonFileHelper = JsonFileHelper()
+
     @Before
     @Throws
     fun setUp() {
-        // Initialize mock webserver
         mockServer = MockWebServer()
-        // Start the local server
         mockServer.start(8080)
-
     }
 
     @Test
     fun testPokemonUrls() {
         val jsonFile = "mock.json"
-
-        val jsonFileHelper = JsonFileHelper()
 
         val mockResponse = MockResponse()
                 .setResponseCode(200)
@@ -49,7 +47,6 @@ class HomeActivityMockWebServer {
 
         Espresso.onView(ViewMatchers.withId(R.id.button_id)).perform(ViewActions.click())
         Espresso.onView(withId(R.id.pokemon_item)).check(matches(withText("mockName")))
-
     }
 
     @After

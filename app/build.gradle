@@ -38,9 +38,6 @@ dependencies {
     implementation Dependencies.appCompat
     implementation Dependencies.dagger
     kapt Dependencies.daggerCompiler
-    implementation Dependencies.retrofitRxJava2
-    implementation Dependencies.converterGson
-
 
     androidTestImplementation Dependencies.supportTestRunner
     androidTestImplementation Dependencies.supportEspressoCore

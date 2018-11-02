@@ -18,8 +18,4 @@ class TestServiceModule: ServiceModule() {
         return RetrofitClientInstance().retrofitClientInstance("http://localhost:8080/")
     }
 
-    @Provides
-    override fun providePokemonService(retrofit: Retrofit): PokemonService {
-        return super.providePokemonService(retrofit)
-    }
 }
