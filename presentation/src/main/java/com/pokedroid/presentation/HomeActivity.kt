@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Button
+import android.widget.Toast
 import com.pokedroid.presentation.dagger.PokemonApplication
 import javax.inject.Inject
 
@@ -57,6 +58,9 @@ class HomeActivity : AppCompatActivity() {
 
                             locationAdapter.locationList = it.locationList
                             locationAdapter.notifyDataSetChanged()
+                        }
+                        is PokedexScreenState.Error -> {
+                            Toast.makeText(applicationContext, "Error error error my friend!", Toast.LENGTH_LONG).show()
                         }
                     }
                 })

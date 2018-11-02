@@ -4,6 +4,7 @@ import android.support.test.InstrumentationRegistry.getInstrumentation
 import android.support.test.espresso.Espresso
 import android.support.test.espresso.action.ViewActions
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.matcher.RootMatchers.withDecorView
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
@@ -12,6 +13,7 @@ import com.pokedroid.helpers.JsonFileHelper
 import com.pokedroid.presentation.HomeActivity
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import org.hamcrest.CoreMatchers.not
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -47,6 +49,20 @@ class HomeActivityMockWebServerTest {
 
         Espresso.onView(ViewMatchers.withId(R.id.button_id)).perform(ViewActions.click())
         Espresso.onView(withId(R.id.pokemon_item)).check(matches(withText("mockName")))
+    }
+
+    @Test
+    fun testFailedCall() {
+
+        val mockResponse = MockResponse()
+                .setResponseCode(500)
+
+        mockServer.enqueue(mockResponse)
+
+        Espresso.onView(ViewMatchers.withId(R.id.button_id)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withText("Error error error my friend!"))
+                .inRoot(withDecorView(not(rule.activity.window.decorView)))
+                .check(matches(isDisplayed()))
     }
 
     @After
