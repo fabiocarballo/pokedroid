@@ -39,13 +39,13 @@ class HomeViewModel @Inject constructor(private val retrieveFirstNPokemons: Retr
 
         return pokedexObservable
                 .startWith(PokedexScreenState.Loading)
-                .onErrorReturn { PokedexScreenState.Error("Ups!") }
+                .onErrorReturn { PokedexScreenState.Error }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pokedexLiveData::postValue, ::handleError)
     }
 
     private fun handleError(throwable: Throwable) {
-        pokedexLiveData.postValue(PokedexScreenState.Error("Yuasdjas"))
+        pokedexLiveData.postValue(PokedexScreenState.Error)
     }
 
 }
