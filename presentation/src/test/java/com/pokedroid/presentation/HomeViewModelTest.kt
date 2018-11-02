@@ -49,7 +49,7 @@ class HomeViewModelTest {
 
         // assertion
         val liveDataValue = tested.pokedexLiveData.value
-        assertEquals((PokedexScreenState.Error("Ups!")), liveDataValue)
+        assertEquals((PokedexScreenState.Error), liveDataValue)
 
     }
 
@@ -66,7 +66,7 @@ class HomeViewModelTest {
 
         // assertion
         val liveDataValue = tested.pokedexLiveData.value
-        assertEquals((PokedexScreenState.Error("Ups!")), liveDataValue)
+        assertEquals((PokedexScreenState.Error), liveDataValue)
     }
 
     @Test
@@ -81,7 +81,7 @@ class HomeViewModelTest {
 
         // assertion
         val liveDataValue = tested.pokedexLiveData.value
-        assertEquals((PokedexScreenState.Error("Ups!")), liveDataValue)
+        assertEquals((PokedexScreenState.Error), liveDataValue)
     }
 
 }
