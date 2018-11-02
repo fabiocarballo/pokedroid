@@ -17,6 +17,7 @@ object Versions {
     const val espressoCore = "3.0.2"
     const val retrofit = "2.4.0"
     const val mockk = "1.8.8"
+    const val mockWebServer = "3.10.0"
 }
 
 object Dependencies {
@@ -47,6 +48,7 @@ object Dependencies {
     const val supportEspressoCore = "com.android.support.test.espresso:espresso-core:${Versions.espressoCore}"
     const val supportTestRules = "com.android.support.test:rules:${Versions.supportTest}"
     const val mockk = "io.mockk:mockk-android:${Versions.mockk}"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
 }
 
 object Modules {

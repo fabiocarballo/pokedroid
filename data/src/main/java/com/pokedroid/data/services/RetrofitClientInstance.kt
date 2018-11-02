@@ -8,10 +8,10 @@ class RetrofitClientInstance {
 
     val BASE_URL: String = "https://pokeapi.co"
 
-    fun retrofitClientInstance(): Retrofit {
+    fun retrofitClientInstance(baseUrl: String = BASE_URL): Retrofit {
 
         return Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

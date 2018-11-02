@@ -46,4 +46,6 @@ dependencies {
     androidTestImplementation Dependencies.rxAndroid2
     androidTestImplementation Dependencies.retrofit
     androidTestImplementation Dependencies.mockk
+    androidTestImplementation Dependencies.mockWebServer
+
 }

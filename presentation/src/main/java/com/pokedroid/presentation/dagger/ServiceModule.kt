@@ -11,7 +11,7 @@ import javax.inject.Singleton
 open class ServiceModule {
 
     @Provides
-    fun provideRetrofit(): Retrofit {
+    open fun provideRetrofit(): Retrofit {
         return RetrofitClientInstance().retrofitClientInstance()
     }
 
