@@ -38,6 +38,9 @@ dependencies {
     implementation Dependencies.appCompat
     implementation Dependencies.dagger
     kapt Dependencies.daggerCompiler
+    implementation Dependencies.retrofitRxJava2
+    implementation Dependencies.converterGson
+
 
     androidTestImplementation Dependencies.supportTestRunner
     androidTestImplementation Dependencies.supportEspressoCore
@@ -46,4 +49,6 @@ dependencies {
     androidTestImplementation Dependencies.rxAndroid2
     androidTestImplementation Dependencies.retrofit
     androidTestImplementation Dependencies.mockk
+    androidTestImplementation 'com.squareup.okhttp3:mockwebserver:3.10.0'
+
 }
